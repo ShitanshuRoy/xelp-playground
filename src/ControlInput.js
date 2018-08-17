@@ -5,7 +5,7 @@ export default class ControlInput extends Component {
     super(props);
     this.state = {
       value: "",
-      focused: ""
+      focused: false
     };
   }
   handleFocus = event => {
@@ -16,7 +16,7 @@ export default class ControlInput extends Component {
   };
   handleChange = event => {
     if (this.props.onlyNumber) {
-      if (onlyNumber(event.target.value)) {
+      if (this.props.onlyNumberFunction(event.target.value)) {
         this.setState({ value: event.target.value }, () => {
           if (this.props.onChange) {
             this.props.onChange(this.state.value);
@@ -25,7 +25,7 @@ export default class ControlInput extends Component {
       }
     }
     if (this.props.onlyAlphabet) {
-      if (onlyAlphabet(event.target.value)) {
+      if (this.props.onlyAlphabetFunction(event.target.value)) {
         this.setState({ value: event.target.value }, () => {
           if (this.props.onChange) {
             this.props.onChange(this.state.value);

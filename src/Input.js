@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ControlInput from "./ControlInput";
 import "./Input.css";
+import { onlyAlphabetFunction, onlyNumberFunction } from "./utils/utils";
 class Input extends Component {
   onChange(val) {
     if (this.props.onChange) {
@@ -8,13 +9,14 @@ class Input extends Component {
     }
   }
   render() {
-    console.log(this.props.height);
     return (
       <div className="Input">
         <ControlInput
           value={this.props.value}
           onlyNumber={this.props.onlyNumber}
           onlyAlphabet={this.props.onlyAlphabet}
+          onlyAlphabetFunction={onlyAlphabetFunction}
+          onlyNumberFunction={onlyNumberFunction}
           onChange={val => this.onChange(val)}
           render={handleInputValues => {
             return (
