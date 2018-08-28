@@ -12,7 +12,7 @@
     bottom:0;
     margin: auto;
     z-index:1;
-    background:url(./img/arrow.png)no-repeat;
+    background:url(../img/arrow.svg)no-repeat;
     background-size:auto 30px;
     background-position:center;
     transform:rotate(180deg);
