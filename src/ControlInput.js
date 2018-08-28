@@ -15,25 +15,13 @@ export default class ControlInput extends Component {
     this.setState({ focused: false });
   };
   handleChange = event => {
-    if (this.props.onlyNumber) {
-      if (this.props.onlyNumberFunction(event.target.value)) {
-        this.setState({ value: event.target.value }, () => {
-          if (this.props.onChange) {
-            this.props.onChange(this.state.value);
-          }
-        });
-      }
-    }
-    if (this.props.onlyAlphabet) {
-      if (this.props.onlyAlphabetFunction(event.target.value)) {
-        this.setState({ value: event.target.value }, () => {
-          if (this.props.onChange) {
-            this.props.onChange(this.state.value);
-          }
-        });
-      }
-    }
-    if (!this.props.onlyAlphabet && !this.props.onlyNumber) {
+    if (this.props.validator) {
+      this.setState({ value: this.props.validator(event.target.value) }, () => {
+        if (this.props.onChange) {
+          this.props.onChange(this.state.value);
+        }
+      });
+    } else {
       this.setState({ value: event.target.value }, () => {
         if (this.props.onChange) {
           this.props.onChange(this.state.value);

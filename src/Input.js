@@ -13,10 +13,7 @@ class Input extends Component {
       <div className="Input">
         <ControlInput
           value={this.props.value}
-          onlyNumber={this.props.onlyNumber}
-          onlyAlphabet={this.props.onlyAlphabet}
-          onlyAlphabetFunction={onlyAlphabetFunction}
-          onlyNumberFunction={onlyNumberFunction}
+          validator={this.props.validator}
           onChange={val => this.onChange(val)}
           render={handleInputValues => {
             return (
