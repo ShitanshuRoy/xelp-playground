@@ -8,10 +8,10 @@ export default class ControlInput extends Component {
       focused: false
     };
   }
-  handleFocus = event => {
+  handleFocus = () => {
     this.setState({ focused: true });
   };
-  handleBlur = event => {
+  handleBlur = () => {
     this.setState({ focused: false });
   };
   handleChange = event => {
