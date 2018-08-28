@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GestureDetector from "./GestureDetector";
-import styles from "./Slide.module.css";
-import SlideGallery from "./SlideGallery";
-export default class Slide extends React.Component {
+import GestureDetector from "../functionalcomponent/GestureDetector";
+import styles from "./HorizontalSlide.module.css";
+import SlideGallery from "../layouters/SlideGallery";
+export default class HorizontalSlide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
