@@ -12,3 +12,10 @@ export function onlyNumberFunction(val) {
   );
   return onlyNumber;
 }
+export function onlyNumberAndAlphabet(val) {
+  let onlyNumberAndAlphabet = val.replace(
+    /[!@#$%^`~&*()_+\-=\[\]{};':"\\|,.<>\/?]/g,
+    ""
+  );
+  return onlyNumberAndAlphabet;
+}

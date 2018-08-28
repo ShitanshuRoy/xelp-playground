@@ -27,8 +27,8 @@ class Input extends Component {
                   autoFocus={this.props.autoFocus}
                   onChange={event => handleInputValues.handleChange(event)}
                   value={handleInputValues.value ? handleInputValues.value : ""}
-                  onFocus={event => handleInputValues.handleFocus(event)}
-                  onBlur={event => handleInputValues.handleBlur(event)}
+                  onFocus={() => handleInputValues.handleFocus()}
+                  onBlur={() => handleInputValues.handleBlur()}
                 />
               </div>
             );
