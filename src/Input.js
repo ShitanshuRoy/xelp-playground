@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ControlInput from "./ControlInput";
 import "./Input.css";
-import { onlyAlphabetFunction, onlyNumberFunction } from "./utils/utils";
 class Input extends Component {
   onChange(val) {
     if (this.props.onChange) {

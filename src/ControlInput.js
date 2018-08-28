@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { onlyAlphabet, onlyNumber } from "./utils/utils";
+
 export default class ControlInput extends Component {
   constructor(props) {
     super(props);
@@ -38,9 +38,7 @@ export default class ControlInput extends Component {
           value: this.state.value ? this.state.value : this.props.value,
           focused: this.state.focused,
           handleFocus: this.handleFocus,
-          handleBlur: this.handleBlur,
-          onlyAlphabet: this.onlyAlphabet,
-          onlyNumber: this.onlyNumber
+          handleBlur: this.handleBlur
         })}
       </React.Fragment>
     );
