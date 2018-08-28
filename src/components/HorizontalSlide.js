@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GestureDetector from "../functionalcomponent/GestureDetector";
+import GestureDetector from "../functionalComponent/GestureDetector";
 import styles from "./HorizontalSlide.module.css";
 import SlideGallery from "../layouters/SlideGallery";
 export default class HorizontalSlide extends React.Component {
