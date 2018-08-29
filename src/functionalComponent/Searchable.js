@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-export default class ControlSearch extends Component {
+export default class Searchable extends Component {
   constructor(props) {
     super(props);
     this.state = {

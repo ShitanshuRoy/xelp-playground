@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ControlSearch from "../functionalComponent/ControlSearch";
-export default class Search extends Component {
+import Searchable from "../functionalComponent/Searchable";
+export default class SearchList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <ControlSearch
+        <Searchable
           keyName={this.props.keyName}
           searchString={this.state.value}
           data={this.props.data}
