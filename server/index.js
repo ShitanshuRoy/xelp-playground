@@ -1,6 +1,6 @@
-import exress from "express";
+import express from "express";
 import serverRenderer from "./middleware/renderer";
-const PORT = 3000;
+const PORT = 3001;
 const path = require("path");
 const app = express();
 const router = express.Router();
@@ -17,6 +17,7 @@ router.use(
 app.use(router);
 
 app.listen(PORT, error => {
+    console.log("listning on 3001");
     if (error) {
         console.log(error);
     }
