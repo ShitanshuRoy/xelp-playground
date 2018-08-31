@@ -2,28 +2,44 @@ import React, { Component } from "react";
 import ControlTagCloud from "../functionalComponent/ControlTagCloud";
 import "./TagCloud.css";
 export default class TagCloud extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ""
+    };
+  }
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+  onEnter = (event, addTagFunction) => {
+    if (event.key === "Enter") {
+      addTagFunction(this.state.value);
+    }
+  };
+  onSubmit = addTagFunction => {
+    addTagFunction(this.state.value);
+  };
   render() {
     return (
       <div className="Input">
         <ControlTagCloud
+          value={this.props.value}
           render={controlTagCloudValues => {
             return (
               <React.Fragment>
                 <div
                   className={"button"}
-                  onClick={controlTagCloudValues.submitButton}
+                  onClick={() => this.onSubmit(controlTagCloudValues.addTag)}
                 >
                   Done
                 </div>
                 <div className={"base"}>
                   <input
                     placeholder={this.props.placeholder}
-                    onChange={event =>
-                      controlTagCloudValues.handleChange(event)
-                    }
+                    onChange={event => this.handleChange(event)}
                     value={controlTagCloudValues.value}
                     onKeyUp={event => {
-                      controlTagCloudValues.addTag(event);
+                      this.onEnter(event, controlTagCloudValues.addTag);
                     }}
                   />
                 </div>

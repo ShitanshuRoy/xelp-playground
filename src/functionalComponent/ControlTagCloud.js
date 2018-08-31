@@ -4,46 +4,28 @@ export default class ControlTagCloud extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ""
+      value: "",
+      nameList: []
     };
-    this.nameList = [];
   }
-  addTag = event => {
-    if (event.key === "Enter") {
-      this.nameList.push(this.state.value);
-      this.setState({ value: "" });
-    }
-  };
-  submitButton = () => {
-    if (this.state.value) {
-      this.nameList.push(this.state.value);
-      this.setState({ value: "" });
-    }
+  addTag = value => {
+    this.state.nameList.push(value);
+    this.setState({ nameList: this.state.nameList });
   };
   removeTag = removeNameList => {
-    var array = this.nameList;
+    var array = this.state.nameList;
     var index = array.indexOf(removeNameList);
     array.splice(index, 1);
-    this.nameList = array;
-    this.setState({ value: "" });
-  };
-  handleChange = event => {
-    this.setState({ value: event.target.value }, () => {
-      if (this.props.onChange) {
-        this.props.onChange(this.state.value);
-      }
-    });
+    this.state.nameList = array;
+    this.setState({ nameList: this.state.nameList });
   };
   render() {
     return (
       <React.Fragment>
         {this.props.render({
-          value: this.state.value,
-          nameList: this.nameList,
+          nameList: this.state.nameList,
           addTag: this.addTag,
-          submitButton: this.submitButton,
-          removeTag: this.removeTag,
-          handleChange: this.handleChange
+          removeTag: this.removeTag
         })}
       </React.Fragment>
     );
