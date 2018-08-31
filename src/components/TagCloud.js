@@ -14,10 +14,12 @@ export default class TagCloud extends Component {
   onEnter = (event, addTagFunction) => {
     if (event.key === "Enter") {
       addTagFunction(this.state.value);
+      this.setState({ value: "" });
     }
   };
   onSubmit = addTagFunction => {
     addTagFunction(this.state.value);
+    this.setState({ value: "" });
   };
   render() {
     return (
@@ -37,7 +39,7 @@ export default class TagCloud extends Component {
                   <input
                     placeholder={this.props.placeholder}
                     onChange={event => this.handleChange(event)}
-                    value={controlTagCloudValues.value}
+                    value={this.state.value}
                     onKeyUp={event => {
                       this.onEnter(event, controlTagCloudValues.addTag);
                     }}
