@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ControlTagCloud from "./ControlTagCloud";
+import ControlTagCloud from "../functionalComponent/ControlTagCloud";
 import "./TagCloud.css";
-
 export default class TagCloud extends Component {
   render() {
     return (

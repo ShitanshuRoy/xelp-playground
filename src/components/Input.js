@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ControlInput from "./ControlInput";
+import ControlInput from "../functionalComponent/ControlInput";
 import "./Input.css";
 class Input extends Component {
   onChange(val) {
