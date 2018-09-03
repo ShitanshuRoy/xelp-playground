@@ -1,7 +1,7 @@
 import React from "react";
 import ControlMultiSelect from "../functionalComponent/ControlMultiSelect";
 import CheckBox from "./CheckBox";
-import "./MultiSelect.css";
+import styles from "./MultiSelect.module.css";
 export default class MultiSelect extends React.Component {
   constructor(props) {
     super(props);
@@ -23,13 +23,13 @@ export default class MultiSelect extends React.Component {
             return this.props.data.map((val, i) => {
               return (
                 <div
-                  className={"textWithCheckBox"}
+                  className={styles.textWithCheckBox}
                   onClick={data =>
                     this.selectItem(val, controlMultiSelectValues.selectItem)
                   }
                 >
-                  <div className={"text"}>{val}</div>
-                  <div className={"checkboxHolder"}>
+                  <div className={styles.text}>{val}</div>
+                  <div className={styles.checkboxHolder}>
                     {controlMultiSelectValues.selected &&
                     controlMultiSelectValues.selected.length > 0 ? (
                       controlMultiSelectValues.selected.map(

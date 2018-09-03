@@ -1,10 +1,10 @@
 import React from "react";
-import "./CheckBox.css";
+import styles from "./CheckBox.module.css";
 export default class CheckBox extends React.Component {
   render() {
-    let className = "base";
+    let className = styles.base;
     if (this.props.selected && this.props.selected.length > 0) {
-      className = "selected";
+      className = styles.selected;
     }
     return <div className={className} />;
   }
