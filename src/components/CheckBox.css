@@ -1,0 +1,24 @@
+.base {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 300ms;
+  background: url("../img/checkbox-untick.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.selected {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 300ms;
+  background: url("../img/checkbox-tick.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
+}

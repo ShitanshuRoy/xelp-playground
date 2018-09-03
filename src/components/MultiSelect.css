@@ -1,0 +1,28 @@
+.textWithCheckBox {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  font-family: regular;
+  display: inline-block;
+  position: relative;
+  color: #000000;
+  line-height: 25px;
+  padding: 10px;
+}
+.checkboxHolder {
+  width: 20px;
+  height: 20px;
+  border: none;
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.text {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  padding-left: 50px;
+}
