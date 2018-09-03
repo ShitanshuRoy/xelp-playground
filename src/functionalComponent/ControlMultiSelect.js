@@ -8,7 +8,7 @@ export default class ControlMultiSelect extends Component {
     };
   }
   selectItem = val => {
-    let selected = this.state.selected;
+    let selected = this.state.selected.slice();
     if (selected.includes(val)) {
       selected = selected.filter(label => val !== label);
     } else {
