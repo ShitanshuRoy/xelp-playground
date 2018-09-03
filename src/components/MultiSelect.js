@@ -17,6 +17,7 @@ export default class MultiSelect extends React.Component {
     return (
       <div>
         <ControlMultiSelect
+          limit={this.props.limit}
           selected={this.state.selectedItems}
           render={controlMultiSelectValues => {
             return this.props.data.map((val, i) => {
