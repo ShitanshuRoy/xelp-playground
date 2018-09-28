@@ -1,0 +1,10 @@
+.ViewSwitcher {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
+}
+.viewShow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
