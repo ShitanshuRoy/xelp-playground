@@ -1,0 +1,58 @@
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.log {
+  min-height: 150px;
+  max-height: 150px;
+  overflow: auto;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  color: #262626;
+  width: 30%;
+  float: left;
+}
+
+.log > p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.log div:nth-of-type(1) {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.log div:nth-of-type(1)::before {
+  content: "Last Event: ";
+}
+
+.config {
+  width: 65%;
+  margin-left: 35%;
+  min-height: 150px;
+  border: 1px solid #eee;
+  padding: 5px 20px;
+}
+
+.config div {
+  margin-bottom: 20px;
+}
+
+.item {
+  border: 1px solid #eee;
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  padding: 0 20px;
+}
+.outer {
+  width: 400px;
+  height: 400px;
+  overflow: auto;
+}
