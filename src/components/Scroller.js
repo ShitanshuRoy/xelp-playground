@@ -13,6 +13,8 @@ export default class ViewSwitcher extends Component {
       scrollBottom: false,
       scrollPosition: 0
     };
+    this.scrollend = 0;
+    this.scrollTop = 0;
   }
   setScrollBottom = () => {
     this.setState({
@@ -27,20 +29,21 @@ export default class ViewSwitcher extends Component {
     });
   };
   componentDidMount() {
-    ReactDOM.findDOMNode(this).addEventListener("scroll", e =>
+    ReactDOM.findDOMNode(this.refs.scroll).addEventListener("scroll", e =>
       this.onScroll(e)
     );
   }
 
   onScroll(position) {
     const { onScrollBottom, onScrollTop } = this.props;
-    const top = position.target.scrollTop;
-    const end = position.target.scrollHeight - position.target.offsetHeight;
+    this.scrollTop = position.target.scrollTop;
+    this.scrollend =
+      position.target.scrollHeight - position.target.offsetHeight;
     this.setState({ scrollPosition: position.target.scrollTop });
-    if (top >= end) {
+    if (this.scrollTop >= this.scrollend) {
       return this.setScrollBottom(), onScrollBottom();
     }
-    if (top == 0) {
+    if (this.scrollTop == 0) {
       return this.setScrollTop(), onScrollTop();
     }
   }
