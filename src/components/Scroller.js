@@ -1,44 +1,50 @@
 import React, { Component } from "react";
-
+import ReactDOM from "react-dom";
 export default class ViewSwitcher extends Component {
+  static defaultProps = {
+    onScrollTop: () => {},
+    onScrollBottom: () => {}
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       scrollTop: false,
-      scrollBottom: false
+      scrollBottom: false,
+      scrollPosition: 0
     };
   }
   setScrollBottom = () => {
-    console.log("scrollBottom");
     this.setState({
       scrollBottom: true,
       scrollTop: false
     });
   };
   setScrollTop = () => {
-    console.log("scrollTop");
     this.setState({
       scrollBottom: false,
       scrollTop: true
     });
   };
-  setScrollDefault = () => {
-    this.setState({
-      scrollBottom: false,
-      scrollTop: false
-    });
-  };
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.render({
-          scrollBottom: this.state.scrollBottom,
-          scrollTop: this.state.scrollTop,
-          setScrollBottom: this.setScrollBottom,
-          setScrollTop: this.setScrollTop,
-          setScrollDefault: this.setScrollDefault
-        })}
-      </React.Fragment>
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).addEventListener("scroll", e =>
+      this.onScroll(e)
     );
+  }
+
+  onScroll(position) {
+    const { onScrollBottom, onScrollTop } = this.props;
+    const top = position.target.scrollTop;
+    const end = position.target.scrollHeight - position.target.offsetHeight;
+    this.setState({ scrollPosition: position.target.scrollTop });
+    if (top >= end) {
+      return this.setScrollBottom(), onScrollBottom();
+    }
+    if (top == 0) {
+      return this.setScrollTop(), onScrollTop();
+    }
+  }
+  render() {
+    return <React.Fragment>{this.props.render(this.state)}</React.Fragment>;
   }
 }
