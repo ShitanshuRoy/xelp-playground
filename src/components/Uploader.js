@@ -76,7 +76,6 @@ export default class Uploader extends Component {
     );
   }
   render() {
-    console.log(this.props.multiple);
     return (
       <React.Fragment>
         {this.props.render({
