@@ -17,6 +17,7 @@ export default class FileUploader extends Component {
       <div>
         <Uploader
           handleChange={data => this.handleChange(data)}
+          multiple={this.props.multiple ? this.props.multiple : false}
           render={fileUpload => {
             return (
               <div>
@@ -25,7 +26,6 @@ export default class FileUploader extends Component {
                   style={{ display: "none" }}
                   onChange={fileUpload.fileChangedHandler}
                   ref={fileInput => (this.fileInput = fileInput)}
-                  multiple={this.props.multiple ? this.props.multiple : false}
                 />
                 <div
                   onClick={() => this.fileInput.click()}

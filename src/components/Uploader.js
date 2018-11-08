@@ -3,8 +3,8 @@ export default class Uploader extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFileName: null,
-      selectedFile: null
+      selectedFileName: [],
+      selectedFile: []
     };
   }
   handleFileChanges = file => {
@@ -20,17 +20,43 @@ export default class Uploader extends Component {
         event.nativeEvent.dataTransfer &&
         event.nativeEvent.dataTransfer.files &&
         event.nativeEvent.dataTransfer.files[0];
-      this.setState({ selectedFileName: file.name, selectedFile: file }, () =>
-        this.handleFileChanges(this.state)
-      );
-      return true;
+      if (this.props.multiple) {
+        this.setState(
+          {
+            selectedFileName: [...this.state.selectedFileName, file.name],
+            selectedFile: [...this.state.selectedFile, file]
+          },
+          () => this.handleFileChanges(this.state)
+        );
+      } else {
+        this.setState(
+          {
+            selectedFileName: [file.name],
+            selectedFile: [file]
+          },
+          () => this.handleFileChanges(this.state)
+        );
+      }
     } else {
       const file =
         event && event.target && event.target.files && event.target.files[0];
-      this.setState({ selectedFileName: file.name, selectedFile: file }, () =>
-        this.handleFileChanges(this.state)
-      );
-      return true;
+      if (this.props.multiple) {
+        this.setState(
+          {
+            selectedFileName: [...this.state.selectedFileName, file.name],
+            selectedFile: [...this.state.selectedFile, file]
+          },
+          () => this.handleFileChanges(this.state)
+        );
+      } else {
+        this.setState(
+          {
+            selectedFileName: [file.name],
+            selectedFile: [file]
+          },
+          () => this.handleFileChanges(this.state)
+        );
+      }
     }
   };
   componentDidMount() {
@@ -50,6 +76,7 @@ export default class Uploader extends Component {
     );
   }
   render() {
+    console.log(this.props.multiple);
     return (
       <React.Fragment>
         {this.props.render({
