@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import styles from "./App.module.css";
-
+import TagCloud from "./components/TagCloud";
+import HorizontalSlide from "./components/HorizontalSlide";
+import Input from "./components/Input";
+import SearchList from "./components/SearchList";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 class App extends Component {
-    render() {
-        console.log(styles);
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className={styles.base}>
-                    To get started, edit <code>src/App.js</code> and save to
-                    reload.
-                </p>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <Router>
+          <Switch>
+            <Route path={"/TagCloud"} component={TagCloud} />
+            <Route path={"/HorizontalSlide"} component={HorizontalSlide} />
+            <Route path={"/ControlInput"} component={Input} />
+            <Route path={"/SearchList"} component={SearchList} />
+          </Switch>
+        </Router>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
